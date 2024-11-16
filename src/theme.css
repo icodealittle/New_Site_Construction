@@ -1,0 +1,21 @@
+.navbar {
+    background-color: #053B06 !important;
+}
+
+.nav-link {
+    color: #ECE5F0 !important;
+}
+
+.nav-link:hover {
+    color: #0B5D1E !important;
+}
+
+.btn-primary {
+    background-color: #0B5D1E;
+    border-color: #0B5D1E;
+}
+
+.btn-primary:hover {
+    background-color: #053B06;
+    border-color: #053B06;
+}
