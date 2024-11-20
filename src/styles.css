@@ -1,174 +1,58 @@
-/* Reset styles for a consistent layout across browsers */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* General body and HTML styles */
-body, html {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Light gray for fallback */
-}
-
-/* Loading Screen Styles */
-#loading-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffe6b3; /* Light yellow background */
-    z-index: 1000; /* Ensure it appears above other elements */
-}
-
-/* Fade-out animation for the loading screen */
-#loading-screen.fade-out {
-    animation: fadeOut 1s forwards; /* Smooth fade-out */
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/* Blinking effect for the loading text */
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-#loading-screen h1 {
-    animation: blink 1s infinite; /* Infinite blinking effect */
-    font-size: 2rem;
-    color: #053B06; /* Dark green text color */
-}
-
-/* Welcome Screen Styles */
-#welcome-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f0f8ff; /* Light blue background */
-    font-size: 2rem;
-    color: #053B06; /* Dark green text color */
-    z-index: 500; /* Place it below the loading screen initially */
-    display: none; /* Hidden by default */
-}
-
-/* General styles for headings and layout */
-h1, h3 {
-    color: #ECE5F0; /* Light font color */
-}
-
-footer {
-    background-color: #0B5D1E; /* Footer background */
-    padding: 1rem;
-    color: #ECE5F0; /* Footer text color */
-    text-align: center;
-}
-
-/* Body background gradient */
+/* General body styles */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #053B06, #0B5D1E); /* Green gradient */
     color: #ECE5F0; /* Light text color */
 }
 
+/* Loading Screen */
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffe6b3;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+}
 
-/**{*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    box-sizing: border-box;*/
-/*}*/
+#loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
 
-/*body, html{*/
-/*    height: 100%;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    font-family: Arial, sans-serif;*/
-/*    background-color: #f0f0f0;*/
-/*}*/
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: #0B5D1E;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+}
 
-/*#loading-screen{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background-color: #ffe6b3;*/
-/*}*/
+.menu {
+    display: flex;
+    gap: 2rem;
+}
 
-/*#loading-screen.fade-out{*/
-/*    animation: fadeOut 1s forwards;*/
-/*}*/
+.menu-item {
+    text-decoration: none;
+    color: #ECE5F0;
+    font-size: 1.2rem;
+}
 
-/*@keyframes fadeOut{*/
-/*    0% {opacity: 1;}*/
-/*    100% {opacity: 0;}*/
-/*}*/
+.menu-item:hover {
+    color: #F0E68C;
+}
 
-/*!*#welcome-screen {*!*/
-/*!*    display: flex;*!*/
-/*!*    justify-content: center;*!*/
-/*!*    align-items: center;*!*/
-/*!*    height: 100%;*!*/
-/*!*    background-color: #f0f8ff;*!*/
-/*!*    font-size: 2rem;*!*/
-/*!*}*!*/
-
-/*@keyframes blink {*/
-/*    0% { opacity: 1; }*/
-/*    50% { opacity: 0; }*/
-/*    100% { opacity: 1; }*/
-/*}*/
-
-/*#loading-screen h1 {*/
-/*    animation: blink 1s infinite; !* Blinking effect *!*/
-/*}*/
-
-/*body {*/
-/*    font-family: Arial, sans-serif;*/
-/*    background: linear-gradient(180deg, #053B06, #0B5D1E);*/
-/*    color: #ECE5F0;*/
-/*}*/
-
-/*h1, h3 {*/
-/*    color: #ECE5F0;*/
-/*}*/
-
-/*footer {*/
-/*    background-color: #0B5D1E;*/
-/*    padding: 1rem;*/
-/*    color: #ECE5F0;*/
-/*    text-align: center;*/
-/*}*/
+.menu-item.active {
+    font-weight: bold;
+    text-decoration: underline;
+}

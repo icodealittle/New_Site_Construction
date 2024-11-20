@@ -118,19 +118,27 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-
     /* Output Options */
-    "outDir": "./dist",         /* Specify output folder for compiled JavaScript files. */
-    "rootDir": "./src",         /* Specify the root folder for TypeScript source files. */
+    "outDir": "./dist",
+    /* Specify output folder for compiled JavaScript files. */
+    "rootDir": "./src",
+    /* Specify the root folder for TypeScript source files. */
 
     /* Module Resolution */
-    "moduleResolution": "node", /* Enable Node.js module resolution. */
-    "resolveJsonModule": true   /* Allow importing JSON files. */
+    "moduleResolution": "node",
+    /* Enable Node.js module resolution. */
+    "resolveJsonModule": true
+    /* Allow importing JSON files. */
   },
   "include": [
-    "src/**/*",                     /* Include all TypeScript files in the src directory. */
-    "global.d.ts"               /* Include the custom type declaration file for assets. */
+    "src/**/*",
+    /* Include all TypeScript files in the src directory. */
+    "global.d.ts"
+    /* Include the custom type declaration file for assets. */
   ],
-  "exclude": ["node_modules"]   /* Exclude node_modules from compilation. */
+  "exclude": [
+    "node_modules"
+  ]
+  /* Exclude node_modules from compilation. */
 }
 

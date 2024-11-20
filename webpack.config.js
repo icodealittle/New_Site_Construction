@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './src/index.ts', // Your entry TypeScript file
+    entry: './src/index.ts',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true, // Cleans the dist folder before every build
+        clean: true,
     },
     resolve: {
         extensions: ['.ts', '.js'],
@@ -20,23 +20,23 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                test: /\.css$/, // Process CSS files
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
         ],
     },
     plugins: [
-        // Process the loading page (index.html)
         new HtmlWebpackPlugin({
-            template: './src/index.html', // Points to your loading page
-            filename: 'index.html', // Output filename in dist
+            template: './src/index.html',
+            filename: 'index.html',
         }),
-        // Copy homepage.html without modifications
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: './src/homepage.html', to: './homepage.html' }, // Points to your homepage file
-            ],
+        new HtmlWebpackPlugin({
+            template: './src/homepage.html',
+            filename: 'homepage.html',
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'styles.css', // Output CSS file
         }),
     ],
-    mode: 'development', // Use 'production' for deployment
+    mode: 'development',
 };

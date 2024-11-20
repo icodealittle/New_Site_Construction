@@ -4,38 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Page</title>
-    <link rel="stylesheet" href="./styles.css">
-<script defer src="bundle.js"></script></head>
+    <link rel="stylesheet" href="styles.css">
+<script defer src="bundle.js"></script><link href="styles.css" rel="stylesheet"></head>
 <body>
 <div id="loading-screen">
     <h1>LOADING...</h1>
 </div>
-<script>
-    setTimeout(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        const welcomeScreen = document.getElementById('welcome-screen');
-
-        // Add fade-out effect to the loading screen
-        loadingScreen.classList.add('fade-out');
-
-        // Wait for the fade-out animation to complete
-        setTimeout(() => {
-            loadingScreen.style.display = 'none'; // Hide loading screen
-            welcomeScreen.style.display = 'flex'; // Show welcome screen
-        }, 1000); // Match this to the fadeOut animation duration (1s)
-    }, 5000);
-    // setTimeout(() => {
-    //     const loadingScreen = document.getElementById('loading-screen');
-    //     loadingScreen.classList.add('fade-out'); // Trigger fade-out effect
-    //     setTimeout(() => {
-    //         window.location.href = './homepage.html'; // Redirect after fade-out
-    //     }, 1000); // Wait for fade-out animation to complete
-    // }, 5000); // Adjust timeout for loading duration
-
-</script>
-<!--    <div id="welcome-screen" style="display: none;">-->
-<!--        <h1>Welcome to the Website!</h1>-->
-<!--    </div>-->
-<!--    <script src="./dist/bundle.js"></script>-->
+<script src="bundle.js"></script>
 </body>
 </html>
