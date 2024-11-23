@@ -24,6 +24,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Add active class to the current menu item based on scroll position
 const sections = document.querySelectorAll('section'); // All page sections
 const menuItems = document.querySelectorAll('.menu-item'); // All navigation links
+const lavaLamp = document.querySelector('.lava-lamp') as HTMLElement; // Lava lamp indicator
 
 window.addEventListener('scroll', () => {
     let currentSection = '';
@@ -42,6 +43,11 @@ window.addEventListener('scroll', () => {
         item.classList.remove('active');
         if (item.getAttribute('href') === `#${currentSection}`) {
             item.classList.add('active');
+
+            // Move the Lava Lamp indicator to the active menu item
+            const rect = (item as HTMLElement).getBoundingClientRect();
+            lavaLamp.style.left = `${rect.left}px`;
+            lavaLamp.style.width = `${rect.width}px`;
         }
     });
 });
@@ -51,14 +57,40 @@ window.addEventListener('load', () => {
     const loadingScreen = document.getElementById('loading-screen');
 
     if (loadingScreen) {
-        // Keep loading screen visible for 5 seconds
+        console.log('Loading screen found, starting timer...'); // Debugging log
         setTimeout(() => {
-            loadingScreen.classList.add('fade-out'); // Trigger fade-out animation
+            console.log('Fading out loading screen...');
+            loadingScreen.classList.add('fade-out'); // Add fade-out animation
 
-            // Wait for the fade-out animation to complete, then redirect to homepage.html
             setTimeout(() => {
-                window.location.href = 'homepage.html'; // Redirect to homepage
-            }, 1000); // Match fade-out duration
-        }, 5000); // Adjust timeout to control how long the loading screen is visible
+                console.log('Redirecting to homepage.html...');
+                window.location.href = 'homepage.html'; // Correct path to homepage
+            }, 1000); // Delay matches fade-out duration
+        }, 10000); // Wait for 10 seconds before starting fade-out
+    } else {
+        console.error('Loading screen element not found.');
     }
 });
+
+
+
+// // Code structure for under construction page
+// import { gsap } from 'gsap';
+//
+// window.addEventListener('DOMContentLoaded', () => {
+//     // Animate the heading with a bounce effect
+//     gsap.fromTo(
+//         "#loading-screen h1",
+//         { opacity: 0, y: -50 },
+//         { opacity: 1, y: 0, duration: 1.5, ease: "bounce.out", repeat: -1, yoyo: true }
+//     );
+//
+//     // Keep the paragraph static (optional fade-in effect)
+//     gsap.from("#loading-screen p", {
+//         opacity: 0,
+//         duration: 1,
+//         delay: 0.5,
+//         ease: "power2.inOut",
+//     });
+// });
+
