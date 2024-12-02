@@ -113,32 +113,41 @@
   "compilerOptions": {
     /* General Options */
     "target": "es2016",
+    /* Target JavaScript version (ES2016). */
     "module": "commonjs",
+    /* Use CommonJS module system. */
     "strict": true,
+    /* Enable strict type-checking options. */
     "esModuleInterop": true,
+    /* Support for CommonJS and ES Modules interop. */
     "forceConsistentCasingInFileNames": true,
+    /* Enforce case-sensitive file imports. */
     "skipLibCheck": true,
+    /* Skip type-checking of declaration files. */
+
     /* Output Options */
     "outDir": "./dist",
-    /* Specify output folder for compiled JavaScript files. */
+    /* Specify output folder for compiled files. */
     "rootDir": "./src",
-    /* Specify the root folder for TypeScript source files. */
+    /* Specify root folder for source files. */
 
     /* Module Resolution */
     "moduleResolution": "node",
-    /* Enable Node.js module resolution. */
+    /* Use Node.js-style module resolution. */
     "resolveJsonModule": true
     /* Allow importing JSON files. */
   },
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
     /* Include all TypeScript files in the src directory. */
-    "global.d.ts"
-    /* Include the custom type declaration file for assets. */
+    "src/**/*.d.ts"
+    /* Include all declaration files in the src directory. */
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    /* Exclude node_modules from compilation. */
+    "dist"
+    /* Exclude dist folder from compilation. */
   ]
-  /* Exclude node_modules from compilation. */
 }
 

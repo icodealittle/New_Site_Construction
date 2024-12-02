@@ -1,4 +1,10 @@
 import './styles.css'; // Ensure the CSS file is imported here
+import corgiGif from './assets/image/loading-corgi.gif';
+
+const gifElement = document.getElementById('corgi-gif') as HTMLImageElement;
+if (gifElement) gifElement.src = corgiGif;
+
+console.log('Resolved GIF Path:', corgiGif);
 
 // Smooth scrolling for anchor links with offset for fixed navbar
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -21,57 +27,87 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
 });
 
-// Add active class to the current menu item based on scroll position
-const sections = document.querySelectorAll('section'); // All page sections
-const menuItems = document.querySelectorAll('.menu-item'); // All navigation links
-const lavaLamp = document.querySelector('.lava-lamp') as HTMLElement; // Lava lamp indicator
+const menuItems = document.querySelectorAll('.menu-item') as NodeListOf<HTMLElement>;
 
-window.addEventListener('scroll', () => {
-    let currentSection = '';
+// const lavaLamp = document.querySelector('.lava-lamp') as HTMLElement;
 
-    // Determine the current section in view
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 3) {
-            currentSection = section.getAttribute('id') || '';
-        }
-    });
+function updateLavaLampPosition(activeItem: HTMLElement) {
+    // const rect = activeItem.getBoundingClientRect();
+    // const parentRect = activeItem.parentElement?.getBoundingClientRect(); // Get parent offset
+    //
+    // // Adjust the left position relative to the parent container
+    // lavaLamp.style.left = `${rect.left - (parentRect?.left || 0)}px`;
+    // lavaLamp.style.width = `${rect.width}px`;
+    // console.log(`Updated Lava Lamp -> Left: ${lavaLamp.style.left}, Width: ${lavaLamp.style.width}`);
+}
 
-    // Update active class on menu items
-    menuItems.forEach((item) => {
-        item.classList.remove('active');
-        if (item.getAttribute('href') === `#${currentSection}`) {
-            item.classList.add('active');
-
-            // Move the Lava Lamp indicator to the active menu item
-            const rect = (item as HTMLElement).getBoundingClientRect();
-            lavaLamp.style.left = `${rect.left}px`;
-            lavaLamp.style.width = `${rect.width}px`;
-        }
+// Add event listeners for menu clicks
+menuItems.forEach((item) => {
+    item.addEventListener('click', (event) => {
+        event.preventDefault();
+        menuItems.forEach((i) => i.classList.remove('active'));
+        item.classList.add('active');
+        // updateLavaLampPosition(item);
     });
 });
 
-// Handle loading screen functionality
-window.addEventListener('load', () => {
-    const loadingScreen = document.getElementById('loading-screen');
-
-    if (loadingScreen) {
-        console.log('Loading screen found, starting timer...'); // Debugging log
-        setTimeout(() => {
-            console.log('Fading out loading screen...');
-            loadingScreen.classList.add('fade-out'); // Add fade-out animation
-
-            setTimeout(() => {
-                console.log('Redirecting to homepage.html...');
-                window.location.href = 'homepage.html'; // Correct path to homepage
-            }, 1000); // Delay matches fade-out duration
-        }, 10000); // Wait for 10 seconds before starting fade-out
-    } else {
-        console.error('Loading screen element not found.');
+// Initialize Lava Lamp on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const activeItem = document.querySelector('.menu-item.active') as HTMLElement;
+    if (activeItem) {
+        updateLavaLampPosition(activeItem);
     }
 });
 
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    const progressElement = document.getElementById('progress-loading') as HTMLElement;
+
+    let progress = 0;
+    let interval: number;
+
+    // Function to update the progress bar
+    function updateProgress(increment: number) {
+        progress = Math.min(progress + increment, 100); // Cap at 100%
+        if (progressElement) {
+            progressElement.textContent = `${progress}%`;
+
+            // Trigger animation on progress update
+            progressElement.classList.add('animated');
+            setTimeout(() => {
+                progressElement.classList.remove('animated');
+            }, 300); // Match the CSS animation duration
+        }
+
+        // When loading reaches 100%, fade out the screen
+        if (progress === 100) {
+            clearInterval(interval);
+            fadeOutLoadingScreen();
+        }
+    }
+
+    // Function to fade out the loading screen
+    function fadeOutLoadingScreen() {
+        if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'homepage.html'; // Redirect to homepage
+            }, 1000);
+        }
+    }
+
+    // Automatically increment progress every 1 second
+    interval = window.setInterval(() => {
+        updateProgress(25); // Increase progress by 25% every second
+    }, 1000);
+
+    // Allow visitors to click anywhere to speed up loading
+    if (loadingScreen) {
+        loadingScreen.addEventListener('click', () => {
+            updateProgress(25); // Increase progress by 25% per click
+        });
+    }
+});
 
 
 // // Code structure for under construction page

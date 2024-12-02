@@ -20,8 +20,15 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/, // Process CSS files
+                test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[name][ext]',
+                },
             },
         ],
     },
@@ -35,7 +42,7 @@ module.exports = {
             filename: 'homepage.html',
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles.css', // Output CSS file
+            filename: 'styles.css',
         }),
     ],
     mode: 'development',

@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0">
     <title>Loading Page</title>
     <link href="styles.css" rel="stylesheet">
-<script defer src="bundle.js"></script><link href="styles.css" rel="stylesheet"></head>
+    <script defer src="bundle.js"></script>
+    <link href="styles.css" rel="stylesheet">
+</head>
 <body>
 <div id="loading-screen">
-    <h1>LOADING...</h1>
+    <h1 id="loading-header">
+        <span id="progress-loading">0%</span>
+    </h1>
+    <img alt="Corgi Running" id="corgi-gif" src="assets/loading-corgi.gif">
+    <p>Click anywhere on the screen to speed up the loading!</p>
 </div>
 <script src="bundle.js"></script>
 </body>
 </html>
+
 
 <!--&lt;!&ndash;Code structure for under construction page&ndash;&gt;-->
 
