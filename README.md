@@ -63,7 +63,7 @@ Usage AI color generator tools for color palette cohesiveness: [coolors.co](http
 ## Disclaimer
 
 I don't own any of the GIFs and some of the images used in this project. These images reserve rights to their original
-creators. Moreover, I also utilized AI [Google: Gemini](https://gemini.google.com/) for grammatical check errors and tone structure.
+creators. Moreover, I also utilized AI–[Google: Gemini](https://gemini.google.com/),for grammatical check errors and tone structure.
 
 ## TODO: Write-up
 * Scope
