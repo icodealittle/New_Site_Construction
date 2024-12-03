@@ -5,16 +5,20 @@
     <meta content="width=device-width, initial-scale=1.0">
     <title>Loading Page</title>
     <link href="styles.css" rel="stylesheet">
-    <script defer src="bundle.js"></script>
-    <link href="styles.css" rel="stylesheet">
-</head>
+<script defer src="bundle.js"></script><link href="styles.css" rel="stylesheet"></head>
 <body>
 <div id="loading-screen">
+    <div id="welcome-animation">
+        <span id="welcome-text"></span>
+    </div>
     <h1 id="loading-header">
         <span id="progress-loading">0%</span>
     </h1>
     <img alt="Corgi Running" id="corgi-gif" src="assets/loading-corgi.gif">
-    <p>Click anywhere on the screen to speed up the loading!</p>
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <p>Click anywhere to progress loading faster!</p>
 </div>
 <script src="bundle.js"></script>
 </body>

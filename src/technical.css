@@ -1,0 +1,40 @@
+/* Portfolio Section Styles */
+#technical-projects {
+    padding: 50px 20px;
+    background-color: #235789;
+    color: #ffffff;
+    text-align: center;
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+}
+
+.scroll-item {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: #1e4471;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.scroll-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-link {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.scroll-link:hover {
+    color: #FFC300;
+}

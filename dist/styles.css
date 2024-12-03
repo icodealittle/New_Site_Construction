@@ -2,6 +2,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
   \******************************************************************/
 /* General Body Styles */
+/* General Styles */
 body {
     font-family: "Lucida Console", Monospace;
     margin: 0;
@@ -37,7 +38,7 @@ body {
 
 #progress-loading {
     font-weight: bold;
-    color: #d7b377;
+    color: #56472F;
     display: inline-block;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -54,6 +55,7 @@ body {
     animation: run-corgi 1s steps(4) infinite;
 }
 
+/* Animations */
 @keyframes run-corgi {
     0% {
         background-position: 0%;
@@ -104,9 +106,9 @@ nav {
     color: #add9f4;
     padding: 15px 20px;
     display: inline-block;
-    transition: color 0.3s ease;
     font-size: 1.2rem;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .lava-menu a:hover,
@@ -114,32 +116,52 @@ nav {
     color: #d7b377;
 }
 
-.lava-menu a {
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #1e4471;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu a {
     text-decoration: none;
-    color: #add9f4; /* Default link color */
-    padding: 15px 20px;
-    display: inline-block;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    color: #FFFFFF;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
-.lava-menu a:hover,
-.lava-menu a.active {
-    color: #d7b377; /* Highlight color for hover/active */
-    background: none; /* No underline effect */
+.dropdown-menu a:hover {
+    color: #FFD700;
 }
 
-/*.lava-lamp {*/
-/*    position: absolute;*/
-/*    bottom: 0; !* Position at the bottom of the menu *!*/
-/*    left: 0;*/
-/*    height: 5px;*/
-/*    background: #d7b377; !* Gold for the Lava Lamp indicator *!*/
-/*    border-radius: 2px;*/
-/*    transition: all 0.4s ease; !* Smooth transition for movement *!*/
-/*}*/
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
-/* Section Styles */
+/* Highlight active menu item */
+.menu-item.active {
+    color: #FFD700; /* Highlight color */
+    font-weight: bold;
+}
+
+
+/* Sections */
 .section {
     padding: 100px 20px;
     min-height: 100vh;
@@ -170,7 +192,7 @@ nav {
     color: #ffffff;
 }
 
-/* Typography Styles */
+/* Typography */
 h1, h2 {
     margin-bottom: 20px;
     color: inherit;
@@ -183,7 +205,7 @@ p {
     color: inherit;
 }
 
-/* Portfolio Items */
+/* Portfolio Section */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -233,13 +255,14 @@ p {
     color: #77b185;
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     background: #214f4b;
     color: #add9f4;
     text-align: center;
     padding: 10px;
 }
+
 
 /*!*Style structure for the construction*!*/
 

@@ -3,26 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Category 1</title>
+    <title>Technical Projects</title>
     <link href="./styles.css" rel="stylesheet">
+    <link href="./technical.css" rel="stylesheet">
 </head>
 <body>
-<header id="homepage-header">
+<!-- Navigation Bar -->
+<header id="lava-lamp-header">
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a class="menu-item active" href="technical.html">Technical Projects</a></li>
-            <li><a class="menu-item" href="techdocument.html">Project Write-up</a></li>
-            <li><a class="menu-item" href="ux.html">UX/UI Design and Research</a></li>
-            <li><a class="menu-item" href="research.html">Research Papers</a></li>
+        <ul class="lava-menu">
+            <li><a class="menu-item" href="homepage.html">Home</a></li>
+            <li class="dropdown">
+                <a class="menu-item" href="portfolio.html">Portfolio</a>
+                <ul class="dropdown-menu">
+                    <li><a class="menu-item" href="technical.html">Technical Projects</a></li>
+                    <li><a class="menu-item active" href="techdocument.html">Project Write-up</a></li>
+                    <li><a class="menu-item" href="ux.html">UX/UI Design and Research</a></li>
+                    <li><a class="menu-item" href="research.html">Research Papers</a></li>
+                </ul>
+            </li>
+            <li><a class="menu-item" href="homepage.html#aboutme">About Me</a></li>
+            <li><a class="menu-item" href="homepage.html#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <section class="section">
-        <h1>Technical Projects</h1>
-        <p>Details and projects specific to Category 1 go here.</p>
+    <!-- Portfolio Section -->
+    <section class="section" id="technical-projects">
+        <h2>Technical Projects</h2>
+        <div class="scroll-container">
+            <!-- Project 1 -->
+            <div class="scroll-item">
+                <img src="assets/jotly.png" alt="Jotly Project" class="scroll-image">
+                <h3>Jotly: Collaborative Note-Taking App</h3>
+                <p>
+                    Developed a mobile app in Java with Firebase for authentication, real-time database, and cloud storage. Enhanced user engagement through optimized collaboration features.
+                </p>
+                <a href="https://github.com/icodealittle/Jotly" class="scroll-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="scroll-item">
+                <img src="assets/anime-recommendation.png" alt="Anime Recommendation System" class="scroll-image">
+                <h3>Anime Recommendation System</h3>
+                <p>
+                    Built a machine learning-based recommendation system using Python and Scikit-learn, analyzing user preferences to suggest anime titles with high accuracy.
+                </p>
+                <a href="https://github.com/icodealittle/Anime-Recomendation-System" class="scroll-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="scroll-item">
+                <img src="assets/solitaire.png" alt="Solitaire Game" class="scroll-image">
+                <h3>Solitaire: Classic Card Game</h3>
+                <p>
+                    Designed and developed a classic Solitaire game in Python, focusing on smooth animations, intuitive gameplay, and a responsive user interface.
+                </p>
+                <a href="https://github.com/icodealittle/Solitaire" class="scroll-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="scroll-item">
+                <img src="assets/job-automation.png" alt="Job Application Automation" class="scroll-image">
+                <h3>Job Application Automation</h3>
+                <p>
+                    Created a Selenium and Playwright-based system to automate job applications, generating personalized cover letters and applying to roles in bulk efficiently.
+                </p>
+                <a href="https://github.com/icodealittle/Job_application_automation" class="scroll-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="scroll-item">
+                <img src="assets/animation.png" alt="Animation Project" class="scroll-image">
+                <h3>Animation: Object-Oriented Java Development</h3>
+                <p>
+                    Designed and implemented animations in Java to simulate realistic movement and interaction of graphical objects. Applied object-oriented principles to enhance modularity and scalability.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/icodealittle/Animation" class="scroll-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 

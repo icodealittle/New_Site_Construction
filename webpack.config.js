@@ -7,7 +7,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        clean: true, // Automatically clean the dist folder
     },
     resolve: {
         extensions: ['.ts', '.js'],
@@ -41,8 +41,24 @@ module.exports = {
             template: './src/homepage.html',
             filename: 'homepage.html',
         }),
+        new HtmlWebpackPlugin({
+            template: './src/technical.html',
+            filename: 'technical.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/techdocument.html',
+            filename: 'techdocument.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/ux.html',
+            filename: 'ux.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/research.html',
+            filename: 'research.html',
+        }),
         new MiniCssExtractPlugin({
-            filename: 'styles.css',
+            filename: 'styles.css', // Output CSS file
         }),
     ],
     mode: 'development',
