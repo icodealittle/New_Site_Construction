@@ -2,26 +2,24 @@
 #technical-projects {
     padding: 50px 20px;
     background-color: #235789;
-    color: #ffffff;
+    color: #000100;
     text-align: center;
 }
 
-.scroll-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    scroll-snap-type: x mandatory;
-    padding: 10px 0;
+.masonry-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Flexibility for different screen sizes */
+    grid-auto-rows: minmax(200px, auto); /* Allow varying heights for grid items */
+    gap: 20px; /* Space between items */
 }
 
 .scroll-item {
-    flex: 0 0 auto;
-    width: 300px;
-    background-color: #1e4471;
+    background-color: #E5FFDE;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
 .scroll-item:hover {
@@ -29,12 +27,22 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
+.scroll-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Portfolio Section Link Styling */
 .scroll-link {
-    color: #FFD700;
-    text-decoration: none;
+    color: #9DACFF; /* Change this to your desired color */
+    text-decoration: none; /* Optional: removes underline */
     font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .scroll-link:hover {
-    color: #FFC300;
+    color: #FFC300; /* Change this to the color on hover */
 }

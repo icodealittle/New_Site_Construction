@@ -77,7 +77,7 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: #214f4b;
+    background: #8E4162;
     height: 60px;
     display: flex;
     align-items: center;
@@ -261,9 +261,9 @@ footer {
 }
 
 
-/*!*Style structure for the construction*!*/
+/*/*Style structure for the construction*/
 
-/*!* General Reset *!*/
+/*/* General Reset */
 /** {*/
 /*    margin: 0;*/
 /*    padding: 0;*/
@@ -281,25 +281,25 @@ footer {
 /*    text-align: center;*/
 /*}*/
 
-/*!* Loading Screen *!*/
+/*/* Loading Screen */
 /*#loading-screen {*/
 /*    text-align: center;*/
 /*}*/
 
-/*!* Animating the Heading *!*/
+/*/* Animating the Heading */
 /*#loading-screen h1 {*/
 /*    font-size: 2.5rem;*/
 /*    margin-bottom: 1rem;*/
 /*    animation: bounce 2s infinite;*/
 /*}*/
 
-/*!* Persistent Paragraph Styling *!*/
+/*/* Persistent Paragraph Styling */
 /*#loading-screen p {*/
 /*    font-size: 1.2rem;*/
 /*    opacity: 1; !* Fully visible *!*/
 /*}*/
 
-/*!* Animations *!*/
+/*/* Animations */
 /*@keyframes bounce {*/
 /*    0%, 20%, 50%, 80%, 100% {*/
 /*        transform: translateY(0);*/
@@ -311,6 +311,5 @@ footer {
 /*        transform: translateY(-5px);*/
 /*    }*/
 /*}*/
-
 
 

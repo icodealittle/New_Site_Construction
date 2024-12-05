@@ -1,4 +1,5 @@
 <!-- TOC -->
+
 * [New Site Construction 🚀](#new-site-construction-)
     * [Overview](#overview)
     * [Feature](#feature-)
@@ -8,17 +9,20 @@
         * [Accent Colors](#accent-colors)
     * [Disclaimer](#disclaimer)
     * [TODO: Write-up](#todo-write-up)
+
 <!-- TOC -->
 
 ## Overview
 
-Modernize my old site design and structure, color palette, and implement reponsive website built using **TypeScript**, **Webpack**, 
+Modernize my old site design and structure, color palette, and implement reponsive website built using **TypeScript**, *
+*Webpack**,
 and **CSS**, featuring dynamic animations and smooth user experiences. The site includes:
+
 - A **corgi running GIF** as part of the loading page.
 - Smooth scrolling navigation.
 - A modular, scalable structure for easy maintenance and extensibility.
 
-## Feature 
+## Feature
 
 1. **Loading Page with Progress Animation**:
     - Displays a corgi running GIF with a progress indicator.
@@ -44,32 +48,37 @@ and **CSS**, featuring dynamic animations and smooth user experiences. The site 
 ## Color Palettes Usage
 
 ### Primary Colors
-| Color Name      | Hex Code  | Usage                           |
-|------------------|-----------|---------------------------------|
-| **Sky Blue**     | `#ADD9F4` | Background gradients, sections |
-| **Golden Yellow**| `#D7B377` | Loading progress, hover states |
-| **Forest Green** | `#214F4B` | Navbar background, buttons     |
-| **Deep Blue**    | `#235789` | Footer, gradients              |
+
+| Color Name        | Hex Code  | Usage                          |
+|-------------------|-----------|--------------------------------|
+| **Sky Blue**      | `#ADD9F4` | Background gradients, sections |
+| **Golden Yellow** | `#D7B377` | Loading progress, hover states |
+| **Forest Green**  | `#214F4B` | Navbar background, buttons     |
+| **Deep Blue**     | `#235789` | Footer, gradients              |
 
 ### Accent Colors
-| Color Name       | Hex Code  | Usage                         |
-|-------------------|-----------|-------------------------------|
-| **White**         | `#FFFFFF` | Text, icons, and borders      |
-| **Off White**     | `#F4F4F4` | Secondary backgrounds         |
-| **Light Gray**    | `#E0E0E0` | Dividers, inactive states     |
 
-Usage AI color generator tools for color palette cohesiveness: [coolors.co](https://coolors.co/011638-364156-cdcdcd-dff8eb-214e34)
+| Color Name     | Hex Code  | Usage                     |
+|----------------|-----------|---------------------------|
+| **White**      | `#FFFFFF` | Text, icons, and borders  |
+| **Off White**  | `#F4F4F4` | Secondary backgrounds     |
+| **Light Gray** | `#E0E0E0` | Dividers, inactive states |
+
+Usage AI color generator tools for color palette
+cohesiveness: [coolors.co](https://coolors.co/011638-364156-cdcdcd-dff8eb-214e34)
 
 ## Disclaimer
 
 I don't own any of the GIFs and some of the images used in this project. These images reserve rights to their original
-creators. Moreover, I also utilized AI–[Google: Gemini](https://gemini.google.com/),for grammatical check errors and tone structure.
+creators. Moreover, I also utilized AI–[Google: Gemini](https://gemini.google.com/),for grammatical check errors and
+tone structure.
 
 ## TODO: Write-up
+
 * Scope
-  * Design Evolution
-  * User Persona update
-  * Technical Enhancement
+    * Design Evolution
+    * User Persona update
+    * Technical Enhancement
 
 
 

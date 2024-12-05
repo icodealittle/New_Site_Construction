@@ -36,7 +36,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"assets/loading-corgi.gif\";\n\n//# sourceURL=webpack://new_site_construction/./src/assets/image/loading-corgi.gif?");
+eval("module.exports = __webpack_require__.p + \"assets/image/loading-corgi.gif\";\n\n//# sourceURL=webpack://new_site_construction/./src/assets/image/loading-corgi.gif?");
 
 /***/ })
 
