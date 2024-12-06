@@ -1,7 +1,7 @@
 /* Portfolio Section Styles */
 #technical-projects {
     padding: 50px 20px;
-    background-color: #235789;
+    background-color: #E5FFDE;
     color: #000100;
     text-align: center;
 }
@@ -14,7 +14,7 @@
 }
 
 .scroll-item {
-    background-color: #E5FFDE;
+    background-color: #EF767A;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 15px;
@@ -37,7 +37,7 @@
 
 /* Portfolio Section Link Styling */
 .scroll-link {
-    color: #9DACFF; /* Change this to your desired color */
+    color: #433E0E;
     text-decoration: none; /* Optional: removes underline */
     font-weight: bold;
     transition: color 0.3s ease; /* Smooth color transition */
