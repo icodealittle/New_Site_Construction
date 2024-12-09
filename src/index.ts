@@ -119,6 +119,13 @@ if (nav) {
     }
 }
 
+const lazyLoadGif = async (id: string, src: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.setAttribute('src', src);
+    }
+};
+
 
 // import './styles.css'; // Ensure the CSS file is imported here
 // import corgiGif from './assets/image/loading-corgi.gif';

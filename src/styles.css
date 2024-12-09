@@ -1,5 +1,4 @@
 /* General Body Styles */
-/* General Styles */
 body {
     font-family: "Lucida Console", Monospace;
     margin: 0;
@@ -10,7 +9,7 @@ body {
 /* Loading Screen */
 #loading-screen {
     font-family: "Lucida Console", Monospace;
-    background: linear-gradient(180deg, #add9f4, #d7b377, #235789);
+    background: linear-gradient(180deg, #add9f4, #d7b377, #235789); /* Gradient background */
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -28,7 +27,7 @@ body {
 }
 
 #loading-header {
-    font-size: 2rem;
+    font-size: 6rem;
     margin-bottom: 20px;
     animation: fade-in 1s ease-in-out infinite alternate;
 }
@@ -157,7 +156,6 @@ nav {
     font-weight: bold;
 }
 
-
 /* Sections */
 .section {
     padding: 100px 20px;
@@ -190,7 +188,8 @@ nav {
 }
 
 /* Typography */
-h1, h2 {
+h1,
+h2 {
     margin-bottom: 20px;
     color: inherit;
 }
@@ -233,6 +232,270 @@ p {
     color: #214f4b;
 }
 
+/*!*!* Timeline Section *!*!*/
+/*.timeline {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); !* Responsive grid *!*/
+/*    gap: 50px; !* Increased gap between items to avoid overlapping *!*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.timeline li {*/
+/*    grid-column: span 1; !* Each item takes up one column *!*/
+/*    text-align: center;*/
+/*    border-radius: 20px;*/
+/*    color: #ffffff;*/
+/*    font-weight: bold;*/
+/*    font-size: 18px; !* Reduced font size *!*/
+/*    line-height: 1.4;*/
+/*    font-family: "Lucida Console", Monospace;*/
+/*    position: relative;*/
+/*    padding: 20px; !* Increased padding *!*/
+/*    margin-bottom: 50px; !* Increased bottom margin to add vertical spacing *!*/
+/*    border: 10px solid transparent; !* Reduced border size *!*/
+/*    background:*/
+/*            linear-gradient(to bottom, #9cc3e0, #c6a76c) content-box; !* Gradient background *!*/
+/*}*/
+
+/* Timeline Section */
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* Single-column layout */
+    gap: 40px; /* Vertical spacing between items */
+    justify-content: center;
+}
+
+/* Timeline Item */
+.timeline li {
+    position: relative;
+    text-align: center;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.4;
+    font-family: "Lucida Console", Monospace;
+    padding: 20px;
+    background: linear-gradient(to bottom, #9cc3e0, #c6a76c);
+    margin-bottom: 40px; /* Ensure vertical spacing */
+}
+
+/* Timeline Date Styling */
+.timeline li time {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #E4DFDA;
+    background: #235789;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* Connector Line */
+.timeline li::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: #70cf51;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+}
+
+
+.timeline li:nth-child(even) {
+    grid-column-end: -1;
+    --d: -90deg;
+    --c: #9cc3e0; /* Muted Light Blue */
+}
+
+.timeline li:not(:last-child) {
+    margin-bottom: -20px;
+}
+
+.timeline li:before,
+.timeline li:after {
+    content: "";
+    display: block;
+    height: 0.6em;
+}
+
+.timeline time {
+    position: absolute;
+    font-size: 0.65em;
+    left: calc(100% + 50px);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    color: #0A100D; /* Muted Navy for the text */
+}
+
+.timeline li:nth-child(even) time {
+    left: auto;
+    color: #9cc3e0; /* Muted Light Blue for even items */
+    right: calc(100% + 50px);
+}
+
+.timeline time:before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    top: calc(50% - 5px);
+    right: calc(100% + 5px);
+    width: 65px;
+    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100%
+    2px no-repeat; /* Muted Beige */
+}
+
+.timeline li:nth-child(even) time:before {
+    right: auto;
+    left: calc(100% + 5px);
+    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100%
+    2px no-repeat; /* Muted Light Blue for even items */
+}
+
+sup {
+    font-size: 0.5em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+#footnotes {
+    font-size: 0.1em;
+    margin-top: 20px;
+    color: #555;
+}
+
+#footnotes p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* Timeline Section */
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    justify-content: center;
+}
+
+.timeline li {
+    grid-column: span 2;
+    text-align: center;
+    border-radius: 65px;
+    color: #48A9A6;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.5em;
+    font-family: "Lucida Console", Monospace;
+    position: relative;
+    padding: 20px;
+    border: 20px solid transparent;
+    background: linear-gradient(to bottom, #9cc3e0, #9cc3e0) content-box, /* Muted Light Blue */
+    linear-gradient(to bottom, var(--c, #c6a76c), var(--c, #c6a76c)) padding-box, /* Muted Beige */
+    linear-gradient(to right, #0000 75%, #48A9A6) border-box;
+}
+
+.timeline li:nth-child(even) {
+    grid-column-end: -1;
+    --d: -90deg;
+    --c: #9cc3e0; /* Muted Light Blue */
+}
+
+.timeline li:not(:last-child) {
+    margin-bottom: -20px;
+}
+
+.timeline li:before,
+.timeline li:after {
+    content: "";
+    display: block;
+    height: 0.6em;
+}
+
+.timeline time {
+    position: absolute;
+    font-size: 0.65em;
+    left: calc(100% + 50px);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    color: #E4DFDA; /* Muted Navy for the text */
+}
+
+.timeline li:nth-child(even) time {
+    left: auto;
+    color: #9cc3e0; /* Muted Light Blue for even items */
+    right: calc(100% + 50px);
+}
+
+.timeline time:before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    top: calc(50% - 5px);
+    right: calc(100% + 5px);
+    width: 65px;
+    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100%
+    2px no-repeat; /* Muted Beige */
+}
+
+.timeline li:nth-child(even) time:before {
+    right: auto;
+    left: calc(100% + 5px);
+    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100%
+    2px no-repeat; /* Muted Light Blue for even items */
+}
+
+/* Footnote Number in Timeline */
+sup a {
+    text-decoration: none;
+    color: #0047ab;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+sup a:hover {
+    text-decoration: underline;
+}
+
+/* Footnote Text */
+#footnotes {
+    font-size: 1rem;
+    color: #70cf51;
+    margin-top: 20px;
+    padding-left: 10px;
+    border-left: 3px solid #70cf51;
+}
+
+#footnotes p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Connector Line */
+.timeline li:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: #70cf51;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+}
+
 /* Contact Section */
 .contact-icons {
     display: flex;
@@ -259,6 +522,7 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
 
 
 /*/*Style structure for the construction*/
