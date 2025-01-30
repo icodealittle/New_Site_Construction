@@ -14,8 +14,7 @@
 
 ## Overview
 
-Modernize my old site design and structure, color palette, and implement reponsive website built using **TypeScript**, *
-*Webpack**,
+Modernize my old site design and structure, color palette, and implement reponsive website built using **TypeScript**, **Webpack**,
 and **CSS**, featuring dynamic animations and smooth user experiences. The site includes:
 
 - A **corgi running GIF** as part of the loading page.
