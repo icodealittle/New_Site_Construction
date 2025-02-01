@@ -1,9 +1,11 @@
 /* Portfolio Section Styles */
 #technical-projects {
-    padding: 50px 20px;
     background-color: #E5FFDE;
     color: #000100;
     text-align: center;
+    font-family: "Lucida Console", Monospace;
+    margin: 0;
+    padding: 0;
 }
 
 .masonry-container {

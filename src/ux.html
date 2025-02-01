@@ -1,5 +1,3 @@
-<!--Code structure for under construction page-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UX/UI Design and Research</title>
     <link rel="stylesheet" href="theme.css">
+    <script defer src="index.js"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -21,6 +20,7 @@
                     <li><a class="menu-item active" href="techdocument.html">Project Write-up</a></li>
                     <li><a class="menu-item" href="ux.html">UX/UI Design and Research</a></li>
                     <li><a class="menu-item" href="research.html">Research Papers</a></li>
+                    <li><a class="menu-item" href="games.html">Games</a></li>
                 </ul>
             </li>
             <li><a class="menu-item" href="homepage.html#aboutme">About Me</a></li>
@@ -29,16 +29,144 @@
     </nav>
 </header>
 <main>
-    <div id="loading-screen">
-        <h1>Page is still Under Construction</h1>
-        <p>I'm currently working hard to create something amazing. Please check back soon!</p>
-    </div>
-</main>
-<script src="bundle.js"></script>
-</body>
+    <section id="ux-projects">
+        <h2>Explore my projects focusing on user-centered design, usability studies, and innovative solutions.</h2>
 
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" data-target="project1-details">Project 1</button>
+            <button class="tab-button" data-target="project2-details">Project 2</button>
+        </div>
+
+        <!-- Project Details -->
+        <div id="project1-details" class="project-details">
+            <h3>Enhancing Usability and Accessibility of a Personal Portfolio Website</h3>
+            <p>This project focused on redesigning my personal portfolio website to improve usability, accessibility,
+                and visual appeal. The website serves as a platform to showcase my technical projects, research studies,
+                and professional background.</p>
+            <p>The redesign introduced simplified navigation, action-oriented CTAs, enhanced readability, and
+                accessibility features like alt text and improved keyboard navigation.</p>
+        </div>
+
+        <div id="project2-details" class="project-details hidden">
+            <h3>Zero Waste Food Tracking Application</h3>
+            <p>Details about Project 2...</p>
+        </div>
+    </section>
+</main>
 <!-- Footer -->
 <footer>
     <p>&copy; 2024 Soumeng Chea. All rights reserved.</p>
 </footer>
+</body>
 </html>
+
+
+<!--&lt;!&ndash;Code structure for under construction page&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>UX/UI Design and Research</title>-->
+<!--    <link rel="stylesheet" href="theme.css">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash; Navigation Bar &ndash;&gt;-->
+<!--<header id="lava-lamp-header">-->
+<!--    <nav>-->
+<!--        <ul class="lava-menu">-->
+<!--            <li><a class="menu-item" href="homepage.html">Home</a></li>-->
+<!--            <li class="dropdown">-->
+<!--                <a class="menu-item" href="portfolio.html">Portfolio</a>-->
+<!--                <ul class="dropdown-menu">-->
+<!--                    <li><a class="menu-item" href="technical.html">Technical Projects</a></li>-->
+<!--                    <li><a class="menu-item active" href="techdocument.html">Project Write-up</a></li>-->
+<!--                    <li><a class="menu-item" href="ux.html">UX/UI Design and Research</a></li>-->
+<!--                    <li><a class="menu-item" href="research.html">Research Papers</a></li>-->
+<!--                    <li> <a class="menu-item" href="games.html">Games</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li><a class="menu-item" href="homepage.html#aboutme">About Me</a></li>-->
+<!--            <li><a class="menu-item" href="homepage.html#contact">Contact</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</header>-->
+<!--<main>-->
+<!--    <section id="ux-projects">-->
+<!--        <div class="project">-->
+<!--            <h2>Explore my projects focusing on user-centered design, usability studies, and innovative solutions.</h2>-->
+<!--            <button class="view-project-btn" data-target="project1-details">View Project</button>-->
+<!--            <div id="project1-details" class="project-details hidden">-->
+<!--                <p>This project focused on redesigning my personal portfolio website to improve usability, accessibility,-->
+<!--                    and visual appeal. The website serves as a platform to showcase my technical projects, research studies,-->
+<!--                    and professional background. Through heuristic evaluation, competitive analysis, and self-testing,-->
+<!--                    I identified key pain points, such as unclear navigation, inconsistent typography, and accessibility gaps.-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    The redesign introduced simplified navigation, action-oriented CTAs, enhanced readability, and-->
+<!--                    accessibility features like alt text and improved keyboard navigation. The result was a user-friendly,-->
+<!--                    inclusive, and visually cohesive platform that effectively communicates my skills and experiences while-->
+<!--                    engaging diverse audiences.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="project">-->
+<!--            <h2>Project 2</h2>-->
+<!--            <button class="view-project-btn" data-target="project2-details">View Project</button>-->
+<!--            <div id="project2-details" class="project-details hidden">-->
+<!--                <p>Details about Project 2...</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash;    <section id="ux-works" class="section">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h2>UX/UI Design and Research</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Explore my projects focusing on user-centered design, usability studies, and innovative solutions.</p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="ux-grid">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="ux-card">&ndash;&gt;-->
+<!--&lt;!&ndash;                <img src="path-to-thumbnail-1.jpg" alt="Project 1 Thumbnail" class="ux-thumbnail">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h3>Enhancing Usability and Accessibility of a Personal Portfolio Website</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>This project focused on redesigning my personal portfolio website to improve usability, accessibility,&ndash;&gt;-->
+<!--&lt;!&ndash;                    and visual appeal. The website serves as a platform to showcase my technical projects, research studies,&ndash;&gt;-->
+<!--&lt;!&ndash;                    and professional background. Through heuristic evaluation, competitive analysis, and self-testing,&ndash;&gt;-->
+<!--&lt;!&ndash;                    I identified key pain points, such as unclear navigation, inconsistent typography, and accessibility gaps.&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    The redesign introduced simplified navigation, action-oriented CTAs, enhanced readability, and&ndash;&gt;-->
+<!--&lt;!&ndash;                    accessibility features like alt text and improved keyboard navigation. The result was a user-friendly,&ndash;&gt;-->
+<!--&lt;!&ndash;                    inclusive, and visually cohesive platform that effectively communicates my skills and experiences while&ndash;&gt;-->
+<!--&lt;!&ndash;                    engaging diverse audiences.&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="ux.html#project1" class="button">View Project</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="ux-card">&ndash;&gt;-->
+<!--&lt;!&ndash;                <img src="path-to-thumbnail-2.jpg" alt="Project 2 Thumbnail" class="ux-thumbnail">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h3>Zero Waste Food Tracking Application</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>A brief description of the project goes here.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="ux.html#project2" class="button">View Project</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            &lt;!&ndash; Add more cards as needed &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </section>&ndash;&gt;-->
+
+<!--</main>-->
+<!--&lt;!&ndash;<main>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div id="loading-screen">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1>Page is still Under Construction</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>I'm currently working hard to create something amazing. Please check back soon!</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</main>&ndash;&gt;-->
+<!--<script src="bundle.js"></script>-->
+<!--</body>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer>-->
+<!--    <p>&copy; 2024 Soumeng Chea. All rights reserved.</p>-->
+<!--</footer>-->
+<!--</html>-->

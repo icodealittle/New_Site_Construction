@@ -66,14 +66,6 @@ module.exports = {
             template: './src/technical.html',
             filename: 'technical.html', // Create technical.html from template
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css', // Generate separate CSS file
-        }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: 'src/assets', to: 'assets' }, // Copy all assets to dist/assets
-            ],
-        }),
         new HtmlWebpackPlugin({
             template: './src/techdocument.html',
             filename: 'techdocument.html', // Create techdocument.html from template
@@ -86,9 +78,23 @@ module.exports = {
             template: './src/ux.html',
             filename: 'ux.html', // Create ux.html from template
         }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css', // Generate separate CSS file
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/assets', to: 'assets' }, // Copy all assets to dist/assets
+            ],
+        }),
+
+        new HtmlWebpackPlugin({
+            template: './src/games.html',
+            filename: 'games.html',
+        }),
     ],
     mode: 'production', // Set Webpack mode to production for optimization
 };
+
 
 
 // const path = require('path');
