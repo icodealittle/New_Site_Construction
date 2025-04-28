@@ -3,47 +3,68 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// Pages to auto-generate
+const htmlPages = [
+    'index',
+    'technical',
+    'techdocument',
+    'research',
+    'ux',
+    'games'
+];
+
+const multipleHtmlPlugins = htmlPages.map(name => new HtmlWebpackPlugin({
+    template: `./src/${name}.html`,
+    filename: `${name}.html`
+}));
+
 module.exports = {
-    entry: ['./src/index.ts', './src/styles.css', './src/technical.css', './src/theme.css'], // Entry point for the app
+    entry: ['./src/index.ts', './src/styles.css', './src/technical.css', './src/theme.css'],
+
     output: {
-        filename: 'bundle.js', // Output bundled JavaScript file
-        path: path.resolve(__dirname, 'dist'), // Output directory
-        clean: true, // Clean the output directory before each build
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true, // Clean dist before building
     },
+
+    devtool: 'source-map', // Helps debugging TypeScript in browser
+
     devServer: {
         static: {
-            directory: path.join(__dirname, 'dist'), // Serve content from dist directory
+            directory: path.join(__dirname, 'dist'),
         },
-        compress: true, // Enable compression
-        port: 9000, // Development server port
-        open: true, // Automatically open the browser
+        compress: true,
+        port: 9000,
+        open: true,
     },
+
     performance: {
-        maxAssetSize: 500000, // Temporarily increase limit to 500 KiB
-        hints: 'warning', // Show warnings for large assets
+        maxAssetSize: 500000, // Warning if assets are larger than 500 KB
+        hints: 'warning',
     },
+
     module: {
         rules: [
             {
-                test: /\.ts$/, // Process TypeScript files
-                use: 'ts-loader', // Use ts-loader to transpile TypeScript
+                test: /\.ts$/,
+                use: 'ts-loader',
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/, // Process CSS files
-                use: [MiniCssExtractPlugin.loader, 'css-loader'], // Extract CSS into separate file
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
-                test: /\.(png|jpe?g|gif|svg|webp)$/i, // Process image assets
-                type: 'asset/resource', // Use Webpack's asset module
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                type: 'asset/resource',
                 generator: {
-                    filename: 'assets/image/[name][ext]', // Copy images to dist/assets/image/
+                    filename: 'assets/image/[name][ext]',
                 },
                 use: [
                     {
-                        loader: 'image-webpack-loader', // Optimize images
+                        loader: 'image-webpack-loader',
                         options: {
-                            gifsicle: { optimizationLevel: 3, interlaced: false },
+                            gifsicle: { optimizationLevel: 3 },
                             mozjpeg: { progressive: true, quality: 75 },
                             optipng: { enabled: true },
                             svgo: { plugins: [{ removeViewBox: false }] },
@@ -53,122 +74,22 @@ module.exports = {
             },
         ],
     },
+
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-            filename: 'index.html', // Create index.html from template
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/homepage.html',
-            filename: 'homepage.html', // Create homepage.html from template
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/technical.html',
-            filename: 'technical.html', // Create technical.html from template
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/techdocument.html',
-            filename: 'techdocument.html', // Create techdocument.html from template
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/research.html',
-            filename: 'research.html', // Create research.html from template
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/ux.html',
-            filename: 'ux.html', // Create ux.html from template
-        }),
+        ...multipleHtmlPlugins, // Auto-generate all your pages
         new MiniCssExtractPlugin({
-            filename: '[name].css', // Generate separate CSS file
+            filename: '[name].css',
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'src/assets', to: 'assets' }, // Copy all assets to dist/assets
+                { from: 'src/assets', to: 'assets' },
             ],
         }),
-
-        new HtmlWebpackPlugin({
-            template: './src/games.html',
-            filename: 'games.html',
-        }),
     ],
-    mode: 'production', // Set Webpack mode to production for optimization
+
+    resolve: {
+        extensions: ['.ts', '.js'], // So you can import .ts without specifying extension
+    },
+
+    mode: 'production',
 };
-
-
-
-// const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
-//
-// module.exports = {
-//     entry: './src/index.ts', // Entry point for the app
-//     output: {
-//         filename: 'bundle.js', // Output bundled JavaScript file
-//         path: path.resolve(__dirname, 'dist'), // Output directory
-//     },
-//     devServer: {
-//         static: {
-//             directory: path.join(__dirname, 'dist'), // Serve content from dist directory
-//         },
-//         compress: true, // Enable compression
-//         port: 9000, // Development server port
-//         open: true, // Automatically open the browser
-//     },
-//     module: {
-//         rules: [
-//             {
-//                 test: /\.ts$/, // Process TypeScript files
-//                 use: 'ts-loader', // Use ts-loader to transpile TypeScript
-//                 exclude: /node_modules/,
-//             },
-//             {
-//                 test: /\.css$/, // Process CSS files
-//                 use: [MiniCssExtractPlugin.loader, 'css-loader'], // Extract CSS into separate file
-//             },
-//             {
-//                 test: /\.(png|jpe?g|gif|svg|webp)$/i, // Process image assets (JPG, PNG, GIF, SVG, etc.)
-//                 type: 'asset/resource', // Use Webpack's asset module
-//                 generator: {
-//                     filename: 'assets/image/[name][ext]', // Copy images to dist/assets/image/
-//                 },
-//             },
-//         ],
-//     },
-//     plugins: [
-//         new HtmlWebpackPlugin({
-//             template: './src/index.html',
-//             filename: 'index.html', // Create index.html from template
-//         }),
-//         new HtmlWebpackPlugin({
-//             template: './src/homepage.html',
-//             filename: 'homepage.html', // Create homepage.html from template
-//         }),
-//         new HtmlWebpackPlugin({
-//             template: './src/technical.html',
-//             filename: 'technical.html', // Create technical.html from template
-//         }),
-//         new MiniCssExtractPlugin({
-//             filename: '[name].css', // Generate separate CSS file
-//         }),
-//         new CopyWebpackPlugin({
-//             patterns: [
-//                 { from: 'src/assets', to: 'assets' }, // Copy all assets to dist/assets
-//             ],
-//         }),
-//         new HtmlWebpackPlugin({
-//             template: './src/techdocument.html',
-//             filename: 'techdocument.html', // Create homepage.html from template
-//         }),
-//         new HtmlWebpackPlugin({
-//             template: './src/research.html',
-//             filename: 'research.html', // Create homepage.html from template
-//         }),
-//         new HtmlWebpackPlugin({
-//             template: './src/ux.html',
-//             filename: 'ux.html', // Create homepage.html from template
-//         }),
-//     ],
-//     mode: 'production', // Set Webpack mode to development for debugging
-// };

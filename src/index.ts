@@ -201,11 +201,11 @@
 
 // Import styles and assets
 import './styles.css';
-import corgiGif from './assets/image/loading-corgi.gif';
+// import corgiGif from './assets/image/loading-corgi.gif';
 
-// Attach the GIF to the loading screen
-const gifElement = document.getElementById('corgi-gif') as HTMLImageElement;
-if (gifElement) gifElement.src = corgiGif;
+// // Attach the GIF to the loading screen
+// const gifElement = document.getElementById('corgi-gif') as HTMLImageElement;
+// if (gifElement) gifElement.src = corgiGif;
 
 // Multilingual Welcome Messages
 const welcomeTexts = [
@@ -218,6 +218,7 @@ const welcomeTexts = [
     "Chào mừng!", // Vietnamese
     "ようこそ!"    // Japanese
 ];
+
 
 const welcomeTextElement = document.getElementById('welcome-text') as HTMLElement;
 let currentIndex = 0;
@@ -315,23 +316,28 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
 });
 
-// Read More Toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const moreContent = document.getElementById("more-content") as HTMLDivElement | null;
-    const readMoreBtn = document.getElementById("read-more-btn") as HTMLButtonElement | null;
 
-    if (moreContent && readMoreBtn) {
-        readMoreBtn.addEventListener("click", () => {
-            if (moreContent.classList.contains("hidden")) {
-                moreContent.classList.remove("hidden");
-                readMoreBtn.textContent = "Read Less";
+// Read More Toggle
+document.addEventListener('DOMContentLoaded', function () {
+    const readMoreBtn = document.getElementById('read-more-btn');
+    const moreContent = document.getElementById('more-content');
+
+    if (readMoreBtn && moreContent) {
+        readMoreBtn.addEventListener('click', function () {
+            if (moreContent.classList.contains('hidden')) {
+                moreContent.classList.remove('hidden');
+                moreContent.classList.add('show');
+                readMoreBtn.textContent = 'Show Less';
+                moreContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else {
-                moreContent.classList.add("hidden");
-                readMoreBtn.textContent = "Read More";
+                moreContent.classList.remove('show');
+                moreContent.classList.add('hidden');
+                readMoreBtn.textContent = 'Read More';
             }
         });
     }
 });
+
 
 // UX Project Tabs Navigation
 document.addEventListener("DOMContentLoaded", () => {

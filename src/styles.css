@@ -241,29 +241,32 @@ p {
 .timeline {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 20px 0 0 0;
     display: grid;
-    grid-template-columns: 1fr; /* Single-column layout */
-    gap: 40px; /* Vertical spacing between items */
+    grid-template-columns: repeat(3, 220px);
     justify-content: center;
+    gap: 40px; /* Vertical spacing between items */
 }
 
-/* Timeline Item */
+/* Regular Timeline Item */
 .timeline li {
+    grid-column: span 2;
     position: relative;
     text-align: center;
-    border-radius: 20px;
-    color: #ffffff;
+    border-radius: 65px;
+    color: #393E41;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.5em;
     font-family: "Lucida Console", Monospace;
     padding: 20px;
-    background: linear-gradient(to bottom, #9cc3e0, #c6a76c);
-    margin-bottom: 40px; /* Ensure vertical spacing */
+    border: 20px solid transparent;
+    background: linear-gradient(to bottom, #9cc3e0, #9cc3e0) content-box,
+    linear-gradient(to bottom, var(--c, #c6a76c), var(--c, #c6a76c)) padding-box,
+    linear-gradient(to right, #0000 75%, #48A9A6) border-box;
 }
 
-/* Timeline Date Styling */
+/* Timeline Dates */
 .timeline li time {
     display: block;
     font-size: 1em;
@@ -287,24 +290,26 @@ p {
     top: 100%;
 }
 
-
+/* Alternating Event Style */
 .timeline li:nth-child(even) {
     grid-column-end: -1;
     --d: -90deg;
-    --c: #9cc3e0; /* Muted Light Blue */
+    --c: #9cc3e0; /* Light Blue */
 }
 
+/* Timeline Spacing */
 .timeline li:not(:last-child) {
     margin-bottom: -20px;
 }
 
+/* Timeline Decorative Connectors */
 .timeline li:before,
 .timeline li:after {
-    content: "";
     display: block;
     height: 0.6em;
 }
 
+/* Timeline Date Position */
 .timeline time {
     position: absolute;
     font-size: 0.65em;
@@ -312,15 +317,17 @@ p {
     top: 50%;
     transform: translateY(-50%);
     white-space: nowrap;
-    color: #0A100D; /* Muted Navy for the text */
+    color: #0A100D; /* Dark Navy */
 }
 
+/* Even Events Date Alignment */
 .timeline li:nth-child(even) time {
     left: auto;
-    color: #9cc3e0; /* Muted Light Blue for even items */
     right: calc(100% + 50px);
+    color: #9cc3e0;
 }
 
+/* Timeline Date Lines */
 .timeline time:before {
     content: "";
     position: absolute;
@@ -328,119 +335,266 @@ p {
     top: calc(50% - 5px);
     right: calc(100% + 5px);
     width: 65px;
-    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; /* Muted Beige */
+    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100% 2px no-repeat;
 }
 
 .timeline li:nth-child(even) time:before {
     right: auto;
     left: calc(100% + 5px);
-    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; /* Muted Light Blue for even items */
+    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100% 2px no-repeat;
 }
 
-sup {
-    font-size: 0.5em;
-    vertical-align: super;
-    line-height: 0;
-}
-
-
-/* Timeline Section */
-.timeline {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 220px);
-    justify-content: center;
-}
-
-.timeline li {
-    grid-column: span 2;
-    text-align: center;
-    border-radius: 65px;
-    color: #393E41;
+/* Group Header (no connector, styled) */
+.timeline-group {
+    grid-column: span 3;
+    background: none;
+    color: #7f4f24; /* Russet */
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 1.5em;
-    font-family: "Lucida Console", Monospace;
-    position: relative;
-    padding: 20px;
-    border: 20px solid transparent;
-    background: linear-gradient(to bottom, #9cc3e0, #9cc3e0) content-box, /* Muted Light Blue */ linear-gradient(to bottom, var(--c, #c6a76c), var(--c, #c6a76c)) padding-box, /* Muted Beige */ linear-gradient(to right, #0000 75%, #48A9A6) border-box;
+    text-align: center;
+    padding: 30px 0 10px 0;
+    margin: 60px 0 30px 0;
+    border: none;
+    box-shadow: none;
 }
 
-p {
-    margin-bottom: 40px; /* Adds space below the paragraph */
+.timeline-group::after {
+    content: none; /* No green connector line */
 }
 
-.timeline {
-    margin-top: 20px; /* Adds space above the timeline */
+.timeline-group {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
 }
 
-.timeline li:nth-child(even) {
-    grid-column-end: -1;
-    --d: -90deg;
-    --c: #9cc3e0; /* Muted Light Blue */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.timeline li:not(:last-child) {
-    margin-bottom: -20px;
-}
+/*!* Timeline Section *!*/
+/*.timeline {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr; !* Single-column layout *!*/
+/*    gap: 40px; !* Vertical spacing between items *!*/
+/*    justify-content: center;*/
+/*}*/
 
-.timeline li:before,
-.timeline li:after {
-    content: "";
-    display: block;
-    height: 0.6em;
-}
+/*!* Timeline Item *!*/
+/*.timeline li {*/
+/*    position: relative;*/
+/*    text-align: center;*/
+/*    border-radius: 20px;*/
+/*    color: #ffffff;*/
+/*    font-weight: bold;*/
+/*    font-size: 18px;*/
+/*    line-height: 1.4;*/
+/*    font-family: "Lucida Console", Monospace;*/
+/*    padding: 20px;*/
+/*    background: linear-gradient(to bottom, #9cc3e0, #c6a76c);*/
+/*    margin-bottom: 40px; !* Ensure vertical spacing *!*/
+/*}*/
 
-.timeline time {
-    position: absolute;
-    font-size: 0.65em;
-    left: calc(100% + 50px);
-    top: 50%;
-    transform: translateY(-50%);
-    white-space: nowrap;
-    color: #E4DFDA; /* Muted Navy for the text */
-}
+/*!* Timeline Date Styling *!*/
+/*.timeline li time {*/
+/*    display: block;*/
+/*    font-size: 1em;*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 10px;*/
+/*    color: #E4DFDA;*/
+/*    background: #A68A64;*/
+/*    padding: 5px 10px;*/
+/*    border-radius: 10px;*/
+/*}*/
 
-.timeline li:nth-child(even) time {
-    left: auto;
-    color: #9cc3e0; /* Muted Light Blue for even items */
-    right: calc(100% + 50px);
-}
+/*!* Connector Line *!*/
+/*.timeline li::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 2px;*/
+/*    height: 40px;*/
+/*    background: #70cf51;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    top: 100%;*/
+/*}*/
 
-.timeline time:before {
-    content: "";
-    position: absolute;
-    height: 10px;
-    top: calc(50% - 5px);
-    right: calc(100% + 5px);
-    width: 65px;
-    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; /* Muted Beige */
-}
 
-.timeline li:nth-child(even) time:before {
-    right: auto;
-    left: calc(100% + 5px);
-    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; /* Muted Light Blue for even items */
-}
+/*.timeline li:nth-child(even) {*/
+/*    grid-column-end: -1;*/
+/*    --d: -90deg;*/
+/*    --c: #9cc3e0; !* Muted Light Blue *!*/
+/*}*/
 
-/* Connector Line */
-.timeline li:after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 40px;
-    background: #70cf51;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100%;
-}
+/*.timeline li:not(:last-child) {*/
+/*    margin-bottom: -20px;*/
+/*}*/
 
-.hidden {
-    display: none;
-}
+/*.timeline li:before,*/
+/*.timeline li:after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    height: 0.6em;*/
+/*}*/
+
+/*.timeline time {*/
+/*    position: absolute;*/
+/*    font-size: 0.65em;*/
+/*    left: calc(100% + 50px);*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    white-space: nowrap;*/
+/*    color: #0A100D; !* Muted Navy for the text *!*/
+/*}*/
+
+/*.timeline li:nth-child(even) time {*/
+/*    left: auto;*/
+/*    color: #9cc3e0; !* Muted Light Blue for even items *!*/
+/*    right: calc(100% + 50px);*/
+/*}*/
+
+/*.timeline time:before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    height: 10px;*/
+/*    top: calc(50% - 5px);*/
+/*    right: calc(100% + 5px);*/
+/*    width: 65px;*/
+/*    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; !* Muted Beige *!*/
+/*}*/
+
+/*.timeline li:nth-child(even) time:before {*/
+/*    right: auto;*/
+/*    left: calc(100% + 5px);*/
+/*    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; !* Muted Light Blue for even items *!*/
+/*}*/
+
+/*sup {*/
+/*    font-size: 0.5em;*/
+/*    vertical-align: super;*/
+/*    line-height: 0;*/
+/*}*/
+
+
+/*!* Timeline Section *!*/
+/*.timeline {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, 220px);*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.timeline li {*/
+/*    grid-column: span 2;*/
+/*    text-align: center;*/
+/*    border-radius: 65px;*/
+/*    color: #393E41;*/
+/*    font-weight: bold;*/
+/*    font-size: 16px;*/
+/*    line-height: 1.5em;*/
+/*    font-family: "Lucida Console", Monospace;*/
+/*    position: relative;*/
+/*    padding: 20px;*/
+/*    border: 20px solid transparent;*/
+/*    background: linear-gradient(to bottom, #9cc3e0, #9cc3e0) content-box, !* Muted Light Blue *! linear-gradient(to bottom, var(--c, #c6a76c), var(--c, #c6a76c)) padding-box, !* Muted Beige *! linear-gradient(to right, #0000 75%, #48A9A6) border-box;*/
+/*}*/
+
+/*p {*/
+/*    margin-bottom: 40px; !* Adds space below the paragraph *!*/
+/*}*/
+
+/*.timeline {*/
+/*    margin-top: 20px; !* Adds space above the timeline *!*/
+/*}*/
+
+/*.timeline li:nth-child(even) {*/
+/*    grid-column-end: -1;*/
+/*    --d: -90deg;*/
+/*    --c: #9cc3e0; !* Muted Light Blue *!*/
+/*}*/
+
+/*.timeline li:not(:last-child) {*/
+/*    margin-bottom: -20px;*/
+/*}*/
+
+/*.timeline li:before,*/
+/*.timeline li:after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    height: 0.6em;*/
+/*}*/
+
+/*.timeline time {*/
+/*    position: absolute;*/
+/*    font-size: 0.65em;*/
+/*    left: calc(100% + 50px);*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    white-space: nowrap;*/
+/*    color: #E4DFDA; !* Muted Navy for the text *!*/
+/*}*/
+
+/*.timeline li:nth-child(even) time {*/
+/*    left: auto;*/
+/*    color: #9cc3e0; !* Muted Light Blue for even items *!*/
+/*    right: calc(100% + 50px);*/
+/*}*/
+
+/*.timeline time:before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    height: 10px;*/
+/*    top: calc(50% - 5px);*/
+/*    right: calc(100% + 5px);*/
+/*    width: 65px;*/
+/*    background: repeating-linear-gradient(-90deg, #c6a76c 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; !* Muted Beige *!*/
+/*}*/
+
+/*.timeline li:nth-child(even) time:before {*/
+/*    right: auto;*/
+/*    left: calc(100% + 5px);*/
+/*    background: repeating-linear-gradient(90deg, #9cc3e0 0 5px, #0000 0 10px) 50%/100% 2px no-repeat; !* Muted Light Blue for even items *!*/
+/*}*/
+
+/*!* Connector Line *!*/
+/*.timeline li:after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 2px;*/
+/*    height: 40px;*/
+/*    background: #70cf51;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    top: 100%;*/
+/*}*/
+
+/*.timeline-group {*/
+/*    background: none; !* No background fill *!*/
+/*    color: #7f4f24; !* Russet or Gold text color from your palette *!*/
+/*    font-size: 1.4rem;*/
+/*    font-weight: bold;*/
+/*    text-align: center;*/
+/*    padding: 20px 0;*/
+/*    margin: 40px 0 20px 0;*/
+/*    border: none;*/
+/*    box-shadow: none;*/
+/*}*/
+
+/*.timeline-group::after {*/
+/*    content: none; !* Remove connector line *!*/
+/*}*/
+
 
 button {
     background-color: #214f4b;
@@ -567,6 +721,19 @@ footer {
     transition: all 0.2s ease;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 #read-more-btn:active {
     box-shadow: 0px 0px 0px 0px;
     top: 5px;
@@ -576,6 +743,24 @@ footer {
 #read-more-btn:hover {
     background-color: var(--sage-2, #a4ac86);
     color: #fff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#more-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease, opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(-10px); /* Start slightly up */
+}
+
+#more-content.show {
+    max-height: 1000px; /* Big enough to cover full paragraph expansion */
+    opacity: 1;
+    transform: translateY(0); /* Slide into place naturally */
 }
 
 

@@ -1,49 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0">
-    <title>Loading Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles.css"> <!-- Corrected the link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./index.js" defer></script>
 
 
 </head>
 <body>
-<div id="loading-screen">
-    <div id="welcome-animation">
-        <span id="welcome-text"></span>
-    </div>
-    <h1 id="loading-header">
-        <span id="progress-loading">0%</span>
-    </h1>
-    <img alt="Corgi Running" id="corgi-gif" src="./assets/image/loading-corgi.gif">
-    <div id="progress-bar-container">
-        <div id="progress-bar"></div>
-    </div>
-    <p>Click anywhere to progress loading faster!</p>
-</div>
-<script src="bundle.js"></script>
+<!-- Navigation Bar -->
+<header id="lava-lamp-header">
+    <nav>
+        <ul class="lava-menu">
+            <li><a class="menu-item active" href="#home">Home</a></li>
+            <li class="dropdown">
+                <a class="menu-item" href="#portfolio">Portfolio</a>
+                <ul class="dropdown-menu">
+                    <li><a class="menu-item" href="./technical.html">Technical Projects</a></li>
+                    <li><a class="menu-item" href="https://www.notion.so/Technical-Documentation-18ec29c399838057a142d11e58860985?pvs=4">Technical Documents</a></li>
+                    <li><a class="menu-item" href="https://www.figma.com/deck/qruvvLpAyMK1Cl4YuQDJFu">UX/UI Research & Design</a></li>
+                    <!--                    <li><a class="menu-item" href="research.html">Research Papers</a></li>-->
+                    <li> <a class="menu-item" href="games.html">Games</a></li>
+                </ul>
+            </li>
+            <li><a class="menu-item" href="#aboutme">About Me</a></li>
+            <li><a class="menu-item" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main>
+    <section class="section" id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my projects and learn more about my journey.</p>
+    </section>
+
+    <section class="section" id="portfolio">
+        <h2>Portfolio Section</h2>
+        <div class="portfolio-grid">
+            <a class="portfolio-item" href="technical.html">
+                <i class="bi bi-tools"></i>
+                <h3>Technical Projects</h3>
+                <p>Discover technical achievements and personal projects.</p>
+            </a>
+            <a class="portfolio-item" href="https://www.notion.so/Technical-Documentation-18ec29c399838057a142d11e58860985?pvs=4">
+                <i class="bi bi-file-earmark-text"></i>
+                <h3>Technical Documentation</h3>
+                <p>Explore detailed technical documentation.</p>
+            </a>
+            <a class="portfolio-item" href="https://stump-gym-923.notion.site/Portfolio-UX-UI-Research-Design-18dc29c39983806da5a8db876071151a">
+                <i class="bi bi-palette"></i> <!-- UX/UI Design Icon -->
+                <h3>UX/UI Research & Design</h3>
+                <p>See my UX/UI design and research projects.</p>
+            </a>
+<!--            <a class="portfolio-item" href="research.html">-->
+<!--                <i class="bi bi-journal-text"></i> &lt;!&ndash; Research Papers Icon &ndash;&gt;-->
+
+<!--                <h3>Research Papers</h3>-->
+<!--                <p>Read academic and technical research papers.</p>-->
+<!--            </a>-->
+            <a class="portfolio-item" href="games.html">
+                <i class="bi bi-controller"></i> <!-- Research Papers Icon -->
+
+                <h3>Web-based Games</h3>
+                <p>A part of Technical Projects personal project, while this category focuses more on my web-based game.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="aboutme">
+        <h1>About Me</h1>
+        <div id="about-me-content" class="collapsible">
+            <p>
+                My name is Alex Chea, and I am a versatile Boston-based professional with experience in software engineering,
+                data analysis, UX consulting, and product/project management. My passion for computer science stems from its
+                unique combination of logic, problem-solving, and creative thinking.
+            </p>
+
+            <div id="more-content" class="hidden">
+                <p>
+                    With a Master's degree in Computer Science, specializing in Data Science, Machine Learning, and
+                    Human-Centered AI, I’ve developed skills in building scalable data pipelines, automating processes,
+                    and designing interactive solutions that enhance user experiences.
+                </p>
+                <p>
+                    Outside the academic and professional world, I find joy in cooking and baking – both are incredibly
+                    therapeutic for me. My passion for exploration extends to travel; I lived in Laos for four years before
+                    migrating to the United States.
+                </p>
+                <p>
+                    As for why my GitHub username is "icodealittle" – there’s no grand explanation. I simply thought it was a
+                    fun and lighthearted way to describe myself as I navigate this exciting and ever-evolving industry.
+                </p>
+            </div>
+        </div>
+
+        <button id="read-more-btn" class="button-54" role="button">Read More</button>
+
+        <div class="tech-stack-box">
+            <p><strong>Programming Languages:</strong> Python, TypeScript, Java, R, C, C++</p>
+            <p><strong>Web Technologies:</strong> HTML5, CSS3, JavaScript, GSAP (GreenSock), Webpack, Node.js, React.js, Angular</p>
+            <p><strong>Data Tools & Libraries:</strong> SQL, MongoDB, MySQL, Firebase, BigQuery, Tableau, Power BI</p>
+            <p><strong>Machine Learning Libraries:</strong> TensorFlow, PyTorch, Scikit-learn, HuggingFace, spaCy, NLTK</p>
+            <p><strong>Frameworks:</strong> Docker, Kubernetes, RESTful APIs, GraphQL</p>
+            <p><strong>Collaboration Tools:</strong> Jira, Confluence, Notion, Slack</p>
+            <p><strong>Version Control & Hosting:</strong> Git, GitHub, Hostinger</p>
+            <p><strong>Languages:</strong> Fluent in Khmer, conversational in Thai and Laotian, intermediate in French.</p>
+            <p><strong>Other Skills:</strong> Agile Methodologies, Data Visualization, UX Research, Automation with
+                Selenium & Playwright</p>
+        </div>
+        <ul class="timeline">
+
+            <!-- 🎓 Education -->
+            <li class="timeline-group">🎓 Education</li>
+            <li><time datetime="2015-09">September 2015</time>University of Massachusetts Lowell</li>
+            <li><time datetime="2017-04">April 2017</time>Pi Delta Phi (ΠΔΦ): La Société d'Honneur de Français</li>
+            <li><time datetime="2018-10">October 2018</time>Pi Sigma Alpha (ΠΣΑ): The National Political Science Honor Society</li>
+            <li><time datetime="2019-02">February 2019</time>B.A.:<br>Political Science, Cum Laude Honors</li>
+            <li><time datetime="2019-09">September 2019</time>Northeastern University</li>
+            <li><time datetime="2022-08">August 2022</time>M.S.:<br>Computer Science, Focus: Data Science, Machine Learning, Human-Centered AI</li>
+            <li><time datetime="2025-01">January 2025</time>Bentley University McCallum Graduate School of Business<br>MBA + MS Human Factors in Information Design<br>Research Focus: Privacy, Surveillance, and AI Ethics in Digital Platforms<br>Society of Academic Integrity (Member)</li>
+
+            <!-- 💼 Professional Experience -->
+            <li class="timeline-group">💼 Professional Experience</li>
+            <li><time datetime="2021-04">April 2021</time>Start:<br> Student Recruitment Ambassador, Northeastern University</li>
+            <li><time datetime="2022-02">February 2022</time>Start:<br> Data Intern at Innsure, Inc.</li>
+            <li><time datetime="2022-05">May 2022</time>End:<br> Data Intern at Innsure, Inc.</li>
+            <li><time datetime="2022-08">August 2022</time>End:<br> Student Recruitment Ambassador</li>
+            <li><time datetime="2023-02">February 2023</time>Start:<br> Freelance Consulting Business</li>
+            <li><time datetime="2023-02">February 2023</time>Start:<br> UX Consultant (Freelance)</li>
+            <li><time datetime="2023-06">June 2023</time>Start:<br> Data Engineer (Freelance)</li>
+            <li><time datetime="2023-07">July 2023</time>End:<br> UX Consultant (Freelance)</li>
+            <li><time datetime="2024-08">August 2024</time>End:<br> Data Engineer (Freelance)</li>
+            <li><time datetime="2024-02">February 2024</time>Job Applications Submission Journey</li>
+
+            <!-- 🌟 Competitions -->
+            <li class="timeline-group">🌟 Competitions</li>
+            <li><time datetime="2024-11">November 2024</time>Start:<br><strong>HYDRA-TANK: L'Oréal Brandstorm Innovation Competition</strong><br>Team Lead & Product Researcher<br>User-Centered Product Innovation, Digital Marketing Strategies, Competitive Analysis</li>
+            <li><time datetime="2025-03">March 2025</time>End:<br>HYDRA-TANK: L'Oréal Brandstorm Innovation Competition</li>
+
+            <!-- ✈️ Gap Year Adventures -->
+            <li class="timeline-group">✈️ Gap Year Adventures</li>
+            <li><time datetime="2022-09">September 2022</time>Start:<br> Gap Year (Part 1): Southeast Asia</li>
+            <li><time datetime="2023-10">October 2023</time>End:<br> Gap Year (Part 1): Southeast Asia</li>
+            <li><time datetime="2023-10">October 2023</time>Start:<br> Gap Year (Part 2): United States</li>
+            <li><time datetime="2024-06">June 2024</time>End:<br> Gap Year (Part 2): United States</li>
+
+        </ul>
+
+    </section>
+
+
+    <section class="section" id="contact">
+        <h2>Contact</h2>
+        <div class="contact-icons">
+            <a href="mailto:cheasoumeng@gmail.com"><i class="bi bi-envelope-fill"></i> Email</a>
+            <a href="https://github.com/icodealittle?tab=repositories"><i class="bi bi-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/soumengchea/"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="tel:+19789959219"><i class="bi bi-telephone-fill"></i> Phone</a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Soumeng Chea. All rights reserved.</p>
+</footer>
 </body>
 </html>
-
-
-<!--&lt;!&ndash;Code structure for under construction page&ndash;&gt;-->
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>Under Construction</title>-->
-<!--    <link rel="stylesheet" href="styles.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--<div id="loading-screen">-->
-<!--    <h1>Website Under Construction</h1>-->
-<!--    <p>I'm currently working hard to create something amazing. Please check back soon!</p>-->
-<!--</div>-->
-<!--<script src="bundle.js"></script>-->
-<!--</body>-->
-<!--</html>-->
-
