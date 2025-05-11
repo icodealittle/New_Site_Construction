@@ -2,7 +2,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Home</title>
     <link rel="stylesheet" href="./styles.css"> <!-- Corrected the link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -36,9 +35,20 @@
 <!-- Main Content -->
 <main>
     <section class="section" id="home">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Explore my projects and learn more about my journey.</p>
+        <div class="profile-container">
+            <img src="./assets/image/profile.png" alt="Profile Picture" class="profile-pic">
+        </div>
+
+        <h1>👋 Hi, I’m Alex!</h1>
+        <h2>Welcome to my portfolio site!</h2>
+        <p>
+            I’m a tech-driven problem solver with a background in data science, product management, and human-centered design.
+            Passionate about leveraging AI, analytics, and UX to drive impactful solutions.
+            Currently pursuing an MS in Human Factors in Information Design and an MBA in Financial Analytics to deepen my expertise at the intersection of technology, business, and user experience.
+            Always curious, always learning.
+        </p>
     </section>
+
 
     <section class="section" id="portfolio">
         <h2>Portfolio Section</h2>
@@ -77,25 +87,34 @@
         <h1>About Me</h1>
         <div id="about-me-content" class="collapsible">
             <p>
-                My name is Alex Chea, and I am a versatile Boston-based professional with experience in software engineering,
-                data analysis, UX consulting, and product/project management. My passion for computer science stems from its
-                unique combination of logic, problem-solving, and creative thinking.
+                A tech-driven problem solver passionate about the intersection of technology,
+                business, and user-centered innovation.
             </p>
 
-            <div id="more-content" class="hidden">
+            <div id="more-content">
                 <p>
-                    With a Master's degree in Computer Science, specializing in Data Science, Machine Learning, and
-                    Human-Centered AI, I’ve developed skills in building scalable data pipelines, automating processes,
-                    and designing interactive solutions that enhance user experiences.
+                    My journey into technology started with an endless curiosity for how systems work and how people
+                    interact with them. With a foundation in data science, product management, and human-centered design,
+                    I enjoy building solutions that bridge the gap between users' needs and cutting-edge technology.
+                    I believe that technology should empower, not complicate, people's lives.
                 </p>
                 <p>
-                    Outside the academic and professional world, I find joy in cooking and baking – both are incredibly
-                    therapeutic for me. My passion for exploration extends to travel; I lived in Laos for four years before
-                    migrating to the United States.
+                    Currently, I’m pursuing a dual Master’s degree: an MS in Human Factors in Information Design and an
+                    MBA with a focus on Financial Analytics. This combination allows me to view problems through
+                    multiple lenses — understanding the human experience, the technical backbone, and the strategic
+                    business impact — to craft solutions that are thoughtful, scalable, and sustainable.
                 </p>
                 <p>
-                    As for why my GitHub username is "icodealittle" – there’s no grand explanation. I simply thought it was a
-                    fun and lighthearted way to describe myself as I navigate this exciting and ever-evolving industry.
+                    Professionally, I’m drawn to roles where I can work across disciplines — collaborating with
+                    engineers, designers, researchers, and business stakeholders. I love leveraging AI, analytics,
+                    and UX research to drive meaningful change, whether it's improving user experience, optimizing
+                    product workflows, or uncovering data-driven insights that shape smarter decisions.
+                </p>
+                <p>
+                    Beyond work, I find balance through cooking, traveling, and exploring new creative outlets.
+                    Having lived across Southeast Asia and the United States, I deeply value diverse perspectives and
+                    approach each project with an open, global mindset. I’m always curious, always learning,
+                    and excited to keep growing at the intersection of people, technology, and impact.
                 </p>
             </div>
         </div>
@@ -157,14 +176,17 @@
 
 
     <section class="section" id="contact">
-        <h2>Contact</h2>
-        <div class="contact-icons">
-            <a href="mailto:cheasoumeng@gmail.com"><i class="bi bi-envelope-fill"></i> Email</a>
-            <a href="https://github.com/icodealittle?tab=repositories"><i class="bi bi-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/soumengchea/"><i class="bi bi-linkedin"></i> LinkedIn</a>
-            <a href="tel:+19789959219"><i class="bi bi-telephone-fill"></i> Phone</a>
+        <div class="contact-wrapper">
+            <h2>Contact</h2>
+            <div class="contact-icons">
+                <a href="mailto:cheasoumeng@gmail.com"><i class="bi bi-envelope-fill"></i> Email</a>
+                <a href="https://github.com/icodealittle?tab=repositories"><i class="bi bi-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/soumengchea/"><i class="bi bi-linkedin"></i> LinkedIn</a>
+                <a href="tel:+19789959219"><i class="bi bi-telephone-fill"></i> Phone</a>
+            </div>
         </div>
     </section>
+
 </main>
 
 <!-- Footer -->

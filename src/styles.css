@@ -21,7 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    text-align: center;
+    text-align: left;
     z-index: 1000;
     transition: opacity 1s ease-out;
 }
@@ -163,21 +163,26 @@ nav {
 
 /* Sections */
 .section {
-    padding: 100px 20px;
-    min-height: 100vh;
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    text-align: center;
+    text-align: left;
 }
 
 #home {
+    height: 95vh;
     background-color: #add9f4;
     color: #214f4b;
 }
 
 #portfolio {
+    height: 95vh;
     background-color: #d7b377;
     color: #ffffff;
 }
@@ -188,8 +193,17 @@ nav {
 }
 
 #contact {
+    height: 59vh;
+    padding-top: 120px;
     background-color: #214f4b;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 -60px 0 #214f4b;
 }
 
 /* Typography */
@@ -376,6 +390,41 @@ p {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.profile-pic {
+    width: 250px; /* slightly bigger than before */
+    height: 250px;
+    object-fit: cover;
+    /*border-radius: ; !* make it a perfect circle *!*/
+    box-shadow: none; /* subtle nice shadow */
+    border: none; /* subtle elegant border */
+    transition: transform 0.4s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+
+.intro-text {
+    max-width: 600px; /* Optional: Control line length for readability */
+}
+
+.intro-text h1,
+.intro-text h2,
+.intro-text p {
+    margin: 0 0 15px 0;
+    padding: 0;
+    text-align: left; /* Ensure even h1 and h2 inside are left aligned */
 }
 
 /*!* Timeline Section *!*/
@@ -611,24 +660,69 @@ button:hover {
     background-color: #1a3b35;
 }
 
+#about-me-content p {
+    margin-bottom: 20px; /* or adjust to 24px/30px for more breathing room */
+}
+
 /* Contact Section */
+.contact-wrapper {
+    background-color: #2d4f4c;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-wrapper h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
 .contact-icons {
     display: flex;
-    justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 .contact-icons a {
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #add9f4;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
 }
 
 .contact-icons a:hover {
-    color: #77b185;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
 }
+
+/*.contact-icons {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    gap: 20px;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.contact-icons a {*/
+/*    text-decoration: none;*/
+/*    color: #add9f4;*/
+/*    font-size: 1.5rem;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
+
+/*.contact-icons a:hover {*/
+/*    color: #77b185;*/
+/*}*/
 
 /* Sticky Notes */
 .tech-stack-box {
@@ -697,6 +791,8 @@ footer {
     --reseda-green: #656d4a;
     --ebony: #414833;
     --black-olive: #333d29;
+    --section-padding-top: 80px;
+    --section-padding-bottom: 80px;
 }
 
 /*Buttons*/
@@ -745,74 +841,42 @@ footer {
     color: #fff;
 }
 
-.hidden {
-    display: none !important;
-}
-
 #more-content {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.8s ease, opacity 0.6s ease, transform 0.6s ease;
-    transform: translateY(-10px); /* Start slightly up */
+    transform: scale(0.98) translateY(-10px); /* Slight shrink and lift */
+    transform-origin: top center;
+    transition:
+            max-height 0.8s ease,
+            opacity 0.8s ease,
+            transform 0.8s ease;
 }
 
 #more-content.show {
-    max-height: 1000px; /* Big enough to cover full paragraph expansion */
+    max-height: 5000px; /* Allow full expansion */
     opacity: 1;
-    transform: translateY(0); /* Slide into place naturally */
+    transform: scale(1) translateY(0); /* Grow naturally */
 }
 
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 10px;
+    }
 
-/*/*Style structure for the construction*/
+    .intro-text {
+        max-width: 100%;
+        padding: 0 10px;
+    }
 
-/*/* General Reset */
-/** {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    box-sizing: border-box;*/
-/*}*/
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Stack items */
+    }
 
-/*body {*/
-/*    font-family: Lucida Console, Monospace;*/
-/*    background: linear-gradient(180deg, #FEFEE3,#FDFD96,#9696FD); !* Your preferred palette *!*/
-/*    color: #4D5E22;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    height: 100vh;*/
-/*    text-align: center;*/
-/*}*/
-
-/*/* Loading Screen */
-/*#loading-screen {*/
-/*    text-align: center;*/
-/*}*/
-
-/*/* Animating the Heading */
-/*#loading-screen h1 {*/
-/*    font-size: 2.5rem;*/
-/*    margin-bottom: 1rem;*/
-/*    animation: bounce 2s infinite;*/
-/*}*/
-
-/*/* Persistent Paragraph Styling */
-/*#loading-screen p {*/
-/*    font-size: 1.2rem;*/
-/*    opacity: 1; !* Fully visible *!*/
-/*}*/
-
-/*/* Animations */
-/*@keyframes bounce {*/
-/*    0%, 20%, 50%, 80%, 100% {*/
-/*        transform: translateY(0);*/
-/*    }*/
-/*    40% {*/
-/*        transform: translateY(-10px);*/
-/*    }*/
-/*    60% {*/
-/*        transform: translateY(-5px);*/
-/*    }*/
-/*}*/
+    .contact-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 
